@@ -4,11 +4,11 @@ const Context = createContext()
 
 const Provider = ({children}) => {
     
-    const [movies,setMovies] = useState("sadas")
+    const [popular,setPopular] = useState([])
 
     const values = {
-        movies,
-        setMovies
+        popular,
+        setPopular
     }
 
     return (
