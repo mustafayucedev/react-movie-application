@@ -9,6 +9,14 @@ const MovieImage = ( {movie} ) => {
         className="rounded-md"
         src={movie.poster_path ? API_IMG + movie.poster_path : NULL_IMG} 
         alt={movie.title} />
+        <ul className="flex items-center flex-wrap gap-5 mt-5">
+          <li className="text-white text-sm font-semibold border border-primary rounded-sm px-4 py-2">
+            Release Date : {movie.release_date}
+          </li>
+          <li className="text-white text-sm font-semibold border border-primary rounded-sm px-4 py-2">
+            IMDB : {Math.floor(movie.vote_average)}
+          </li>
+        </ul>
     </aside>
   )
 }
