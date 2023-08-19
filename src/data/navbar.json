@@ -1,0 +1,22 @@
+[
+    {
+        "id": 1,
+        "name": "Home",
+        "url": "/"
+    },
+    {
+        "id": 2,
+        "name": "Popular Movies",
+        "url": "/popular"
+    },
+    {
+        "id": 3,
+        "name": "Top Rated",
+        "url": "/toprated"
+    },
+    {
+        "id": 4,
+        "name": "Up Coming",
+        "url": "/upcoming"
+    }
+]

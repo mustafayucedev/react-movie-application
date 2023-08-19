@@ -2,7 +2,9 @@ import { useRoutes } from "react-router-dom"
 
 import Home from "pages/Home"
 import Movie from "pages/Movie"
-import About from "pages/About"
+import Popular from "pages/Popular"
+import TopRated from "pages/TopRated"
+import UpComing from "pages/UpComing"
 import Error from "pages/Error"
 
 const Routes = () => {
@@ -22,8 +24,16 @@ const Routes = () => {
             ]
         },
         {
-            path: "/about",
-            element: <About/>
+            path: "/popular",
+            element: <Popular/>
+        },
+        {
+            path: "/toprated",
+            element: <TopRated/>
+        },
+        {
+            path: "/upcoming",
+            element: <UpComing/>
         },
         {
             path: "*",

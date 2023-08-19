@@ -4,17 +4,26 @@ const Context = createContext()
 
 const Provider = ({children}) => {
     
+    const [navbar,setNavbar] = useState([])
     const [popular,setPopular] = useState([])
     const [topRated,setTopRated] = useState([])
     const [upComing,setUpComing] = useState([])
+    const [movie,setMovie] = useState([])
+    const [movieCast,setMovieCast] = useState([])
 
     const values = {
+        navbar,
+        setNavbar,
         popular,
         setPopular,
         topRated,
         setTopRated,
         upComing,
-        setUpComing
+        setUpComing,
+        movie,
+        setMovie,
+        movieCast,
+        setMovieCast,
     }
 
     return (

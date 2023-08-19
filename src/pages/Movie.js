@@ -1,8 +1,11 @@
-import React from 'react'
+import Default from "layouts/Default"
+import MovieDetail from "components/movies/MovieDetail/MovieDetail"
 
 const Movie = () => {
   return (
-    <div>Movie</div>
+    <Default>
+      <MovieDetail />
+    </Default>
   )
 }
 

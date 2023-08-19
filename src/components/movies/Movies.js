@@ -13,7 +13,6 @@ const Movies = () => {
 
         httpService.get("/movie/popular")
         .then((res) => {
-            console.log(res.data.results)
             setPopular(res.data.results)
         })
         .catch((error) => {
@@ -22,7 +21,6 @@ const Movies = () => {
 
         httpService.get("/movie/top_rated")
         .then((res) => {
-            console.log(res.data.results)
             setTopRated(res.data.results)
         })
         .catch((error) => {
@@ -31,7 +29,6 @@ const Movies = () => {
 
         httpService.get("/movie/upcoming")
         .then((res) => {
-            console.log(res.data.results)
             setUpComing(res.data.results)
         })
         .catch((error) => {
@@ -42,21 +39,21 @@ const Movies = () => {
 
   return (
     <>
-        <MoviesSection title="Popüler Film & Diziler">
+        <MoviesSection title="Popular Movies">
         {popular &&
             popular.map((item, index) => (
             <MoviesCard key={index} item={item} />
         ))}
         </MoviesSection>
 
-        <MoviesSection title="Türkiye'de Bugün Top 20 Film Listesi">
+        <MoviesSection title="Top 20 List">
         {topRated &&
             topRated.map((item, index) => (
             <MoviesCard key={index} item={item} />
         ))}
         </MoviesSection>
 
-        <MoviesSection title="Çok Yakında..">
+        <MoviesSection title="Up Coming..">
         {upComing &&
             upComing.map((item, index) => (
             <MoviesCard key={index} item={item} />
