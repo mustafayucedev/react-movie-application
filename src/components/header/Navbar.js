@@ -9,7 +9,7 @@ const Navbar = () => {
                     <Link to="/" title="Homepage" className="text-sm text-white hover:underline">Homepage</Link>
                 </li>
                 <li>
-                    <Link to="/" title="About" className="text-sm text-white hover:underline">About</Link>
+                    <Link to="/about" title="About" className="text-sm text-white hover:underline">About</Link>
                 </li>
             </ul>
         </nav>

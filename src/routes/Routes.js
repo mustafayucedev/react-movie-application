@@ -2,6 +2,7 @@ import { useRoutes } from "react-router-dom"
 
 import Home from "pages/Home"
 import Movie from "pages/Movie"
+import About from "pages/About"
 import Error from "pages/Error"
 
 const Routes = () => {
@@ -19,6 +20,10 @@ const Routes = () => {
                     element: <Movie />
                 }
             ]
+        },
+        {
+            path: "/about",
+            element: <About/>
         },
         {
             path: "*",

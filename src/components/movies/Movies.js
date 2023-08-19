@@ -1,13 +1,13 @@
-import Carousel from "react-slick";
-import { carouselMovies } from "utils/carousel"
-
-import { useMovie } from "context/movie"
 import { useEffect } from "react";
+import { useMovie } from "context/movie";
 import { httpService } from "utils/axios";
+
+import MoviesSection from "./MoviesSection";
+import MoviesCard from "./MoviesCard";
 
 const Movies = () => {
 
-    const { setPopular } = useMovie()
+    const { popular,setPopular, topRated,setTopRated, upComing,setUpComing } = useMovie()
 
     useEffect(() => {
 
@@ -19,15 +19,50 @@ const Movies = () => {
         .catch((error) => {
             console.error(error)
         })
+
+        httpService.get("/movie/top_rated")
+        .then((res) => {
+            console.log(res.data.results)
+            setTopRated(res.data.results)
+        })
+        .catch((error) => {
+            console.error(error)
+        })
+
+        httpService.get("/movie/upcoming")
+        .then((res) => {
+            console.log(res.data.results)
+            setUpComing(res.data.results)
+        })
+        .catch((error) => {
+            console.error(error)
+        })
         
-    },[setPopular])
+    },[setPopular,setTopRated,setUpComing])
 
   return (
-    <section className="xl:mb-40 lg:mb-20 md:mb-10">
-    <Carousel {...carouselMovies}>
-        
-    </Carousel>
-  </section>
+    <>
+        <MoviesSection title="Popüler Film & Diziler">
+        {popular &&
+            popular.map((item, index) => (
+            <MoviesCard key={index} item={item} />
+        ))}
+        </MoviesSection>
+
+        <MoviesSection title="Türkiye'de Bugün Top 20 Film Listesi">
+        {topRated &&
+            topRated.map((item, index) => (
+            <MoviesCard key={index} item={item} />
+        ))}
+        </MoviesSection>
+
+        <MoviesSection title="Çok Yakında..">
+        {upComing &&
+            upComing.map((item, index) => (
+            <MoviesCard key={index} item={item} />
+        ))}
+        </MoviesSection>
+    </>
   );
 };
 

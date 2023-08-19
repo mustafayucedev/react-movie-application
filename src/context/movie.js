@@ -5,10 +5,16 @@ const Context = createContext()
 const Provider = ({children}) => {
     
     const [popular,setPopular] = useState([])
+    const [topRated,setTopRated] = useState([])
+    const [upComing,setUpComing] = useState([])
 
     const values = {
         popular,
-        setPopular
+        setPopular,
+        topRated,
+        setTopRated,
+        upComing,
+        setUpComing
     }
 
     return (

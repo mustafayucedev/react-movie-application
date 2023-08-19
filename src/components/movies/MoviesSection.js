@@ -1,30 +1,17 @@
 import Carousel from "react-slick";
 import { carouselMovies } from "utils/carousel"
 
-import { useMovie } from "context/movie"
-import { useEffect } from "react";
-import { httpService } from "utils/axios";
-
-const MoviesSection = () => {
-
-    const { setPopular } = useMovie()
-
-    useEffect(() => {
-        httpService.get("/movie/popular")
-        .then((res) => {
-            setPopular(res.data.results)
-        })
-        .catch((error) => {
-            console.error(error)
-        })
-    },[])
-
+const MoviesSection = ( {title,children} ) => {
+  
   return (
-    <section className="xl:mb-40 lg:mb-20 md:mb-10">
-    <Carousel {...carouselMovies}>
-        
-    </Carousel>
-  </section>
+    <>
+      <section className="xl:mb-20 mb-6">
+      <div className='text-white text-lg font-bold mb-5'> {title} </div>
+        <Carousel {...carouselMovies}>
+          {children}
+        </Carousel>
+      </section>
+    </>
   );
 };
 

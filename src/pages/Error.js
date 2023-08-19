@@ -1,8 +1,9 @@
-import React from 'react'
+import Title from "components/title/Title"
+
 
 const Error = () => {
   return (
-    <div>Error</div>
+    <Title>Error Page!</Title>
   )
 }
 

@@ -3,9 +3,9 @@ import { CiSearch } from "react-icons/ci";
 const Search = () => {
   return (
     <>
-      <section className="md:px-5 xl:mb-40 md:mb-10 sm:mb-5">
+      <section className="md:px-5 xl:mb-40 mb-10">
         <form className="relative xl:w-[600px] md:w-full mx-auto">
-          <input type="text" placeholder="Search Movie.." className="bg-white w-full xl:py-4 px-3 xl:pr-16 lg:pr-10 text-sm rounded-sm" />
+          <input type="text" placeholder="Search Movie.." className="bg-white w-full py-4 px-3 pr-16 text-sm rounded-sm" />
           <button type="submit" title="Search Movie" className="absolute top-1/2 right-3 -translate-y-1/2 -mt-5">
             <CiSearch size={32}/>
           </button>
