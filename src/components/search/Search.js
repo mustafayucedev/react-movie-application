@@ -2,11 +2,14 @@ import { CiSearch } from "react-icons/ci";
 import { useMovie } from "context/movie";
 import { useNavigate } from "react-router-dom";
 
+import { ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import { showErrorMessage } from "utils/toastify";
+
 const Search = () => {
 
   const { search, setSearch } = useMovie()
   const navigate = useNavigate()
-
 
   const handleChange = (e) => {
     setSearch(e.target.value);
@@ -21,7 +24,7 @@ const Search = () => {
     e.preventDefault()
 
     if(search === "") {
-      alert("Lütfen İlgili Alanları Doldurun!")
+      showErrorMessage("Lütfen İlgili Alanları Doldurun !")
     }
     else {
       navigate("/search")
@@ -36,6 +39,7 @@ const Search = () => {
           <button type="submit" title="Search Movie" className="absolute top-1/2 right-3 -translate-y-1/2 -mt-5" onClick={handleSearch}>
             <CiSearch size={32}/>
           </button>
+          <ToastContainer />
           <ul className="flex items-center justify-center flex-wrap lg:gap-6 gap-4 mt-5">
             <li>
               <button className="text-white text-sm" title="joker" onClick={handleClick}>#joker</button>
