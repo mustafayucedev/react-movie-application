@@ -1,12 +1,12 @@
 import Carousel from "react-slick";
 import { carouselMovies } from "utils/carousel"
 
-const MoviesSection = ( {title,children} ) => {
+const MoviesSectionCarousel = ( {title,children} ) => {
   
   return (
     <>
       <section className="xl:mb-20 mb-6">
-      <div className='text-white text-lg font-bold mb-5'> {title} </div>
+      <div className='text-white lg:text-lg lg:text-md font-bold mb-5'> {title} </div>
         <Carousel {...carouselMovies}>
           {children}
         </Carousel>
@@ -15,4 +15,4 @@ const MoviesSection = ( {title,children} ) => {
   );
 };
 
-export default MoviesSection;
+export default MoviesSectionCarousel;

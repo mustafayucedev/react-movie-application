@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useMovie } from "context/movie";
 import { httpService } from "utils/axios";
 
-import MoviesSection from "./MoviesSection";
+import MoviesSectionCarousel from "./MoviesSectionCarousel";
 import MoviesCard from "./MoviesCard";
 
 const Movies = () => {
@@ -39,26 +39,26 @@ const Movies = () => {
 
   return (
     <>
-        <MoviesSection title="Popular Movies">
+        <MoviesSectionCarousel title="Popular Movies">
         {popular &&
             popular.map((item, index) => (
             <MoviesCard key={index} item={item} />
         ))}
-        </MoviesSection>
+        </MoviesSectionCarousel>
 
-        <MoviesSection title="Top 20 List">
+        <MoviesSectionCarousel title="Top 20 List">
         {topRated &&
             topRated.map((item, index) => (
             <MoviesCard key={index} item={item} />
         ))}
-        </MoviesSection>
+        </MoviesSectionCarousel>
 
-        <MoviesSection title="Up Coming..">
+        <MoviesSectionCarousel title="Up Coming..">
         {upComing &&
             upComing.map((item, index) => (
             <MoviesCard key={index} item={item} />
         ))}
-        </MoviesSection>
+        </MoviesSectionCarousel>
     </>
   );
 };

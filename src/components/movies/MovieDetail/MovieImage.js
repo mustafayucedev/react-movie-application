@@ -4,7 +4,7 @@ const NULL_IMG = "https://images.unsplash.com/photo-1540224871915-bc8ffb782bdf?i
 
 const MovieImage = ( {movie} ) => {
   return (
-    <aside className='w-[500px]'>
+    <aside className='xl:w-[500px] lg:w-[400px] w-full'>
         <img 
         className="rounded-md"
         src={movie.poster_path ? API_IMG + movie.poster_path : NULL_IMG} 
