@@ -11,6 +11,7 @@ const Provider = ({children}) => {
     const [movie,setMovie] = useState([])
     const [movieCast,setMovieCast] = useState([])
     const [search,setSearch] = useState("");
+    const [hamburger,setHamburger] = useState(false)
 
     const values = {
         navbar,
@@ -26,7 +27,9 @@ const Provider = ({children}) => {
         movieCast,
         setMovieCast,
         search,
-        setSearch
+        setSearch,
+        hamburger,
+        setHamburger
     }
 
     return (

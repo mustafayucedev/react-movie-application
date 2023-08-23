@@ -16,7 +16,6 @@ useEffect(() => {
 
     httpService.get(`/movie/${movieId}`)
     .then((res) => {
-        console.log(res.data)
         setMovie(res.data)
     })
     .catch((error) => {
@@ -25,7 +24,6 @@ useEffect(() => {
 
     httpService.get(`/movie/${movieId}/credits`)
     .then((res) => {
-        console.log(res.data.cast)
         setMovieCast(res.data.cast)
     })
     .catch((error) => {
