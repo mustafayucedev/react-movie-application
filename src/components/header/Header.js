@@ -5,7 +5,7 @@ import MobileNavbar from "./MobileNavbar";
 const Header = () => {
   return (
     <>
-      <header className="flex items-center justify-between flex-wrap py-2 xl:mb-20 lg:mb-10 md:mb-5 relative">
+      <header className="flex items-center justify-between flex-wrap py-2 xl:mb-20 lg:mb-10 md:mb-5 lg:relative sticky top-0 bg-secondary z-10">
         <Logo />
         <div className="lg:block hidden">
           <Navbar />

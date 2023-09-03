@@ -10,6 +10,7 @@ const Provider = ({children}) => {
     const [upComing,setUpComing] = useState([])
     const [movie,setMovie] = useState([])
     const [movieCast,setMovieCast] = useState([])
+    const [input,setInput] = useState("");
     const [search,setSearch] = useState("");
     const [hamburger,setHamburger] = useState(false)
 
@@ -26,6 +27,8 @@ const Provider = ({children}) => {
         setMovie,
         movieCast,
         setMovieCast,
+        input,
+        setInput,
         search,
         setSearch,
         hamburger,

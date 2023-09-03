@@ -6,36 +6,49 @@ import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { showErrorMessage } from "utils/toastify";
 
+import { httpService } from "utils/axios";
+
+
 const Search = () => {
 
-  const { search, setSearch } = useMovie()
+  const { input, setInput, setSearch } = useMovie()
   const navigate = useNavigate()
 
   const handleChange = (e) => {
-    setSearch(e.target.value);
+    setInput(e.target.value);
   }
 
   const handleClick = (e) => {
     e.preventDefault()
-    setSearch(e.target.title)
+    setInput(e.target.title)
   }
 
   const handleSearch = (e) => {
     e.preventDefault()
 
-    if(search === "") {
+    if(input.trim() === "") {
       showErrorMessage("Lütfen İlgili Alanları Doldurun !")
+      return false
     }
-    else {
-      navigate("/search")
-    }
-  }
+    searchRequest()
+    navigate("/search")
+   }
+
+   const searchRequest = () => {
+    httpService.get(`/search/movie?query=${input}`)
+    .then((res) => {
+        setSearch(res.data.results)
+    })
+    .catch((error) => {
+        console.error(error)
+    })
+   }
 
   return (
     <>
       <section className="md:px-5 xl:mb-40 mb-10">
         <form className="relative xl:w-[600px] md:w-full mx-auto" action="/search">
-          <input type="text" placeholder="Search Movie.." value={search} onChange={handleChange} className="bg-white w-full py-4 px-3 pr-16 text-sm rounded-sm" />
+          <input type="text" placeholder="Search Movie.." value={input} onChange={handleChange} className="bg-white w-full py-4 px-3 pr-16 text-sm rounded-sm" />
           <button type="submit" title="Search Movie" className="absolute top-1/2 right-3 -translate-y-1/2 -mt-5" onClick={handleSearch}>
             <CiSearch size={32}/>
           </button>
@@ -48,7 +61,7 @@ const Search = () => {
               <button className="text-white text-sm" title="breaking bad" onClick={handleClick}>#breaking bad</button>
             </li>
             <li>
-              <button className="text-white text-sm" title="spider man" onClick={handleClick}>#spider man</button>
+              <button className="text-white text-sm" title="oppenheimer" onClick={handleClick}>#oppenheimer</button>
             </li>
           </ul>
         </form>
